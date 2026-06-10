@@ -21,7 +21,6 @@ async def main():
 bot = Bot(token=TOKEN)
 dp = Dispatcher(storage=MemoryStorage())
 
-# Use /app/data for Railway volume persistence
 DB_PATH = os.getenv("DB_PATH", "/app/data/movies.db")
 db = Database(DB_PATH)
 await db.init_db()

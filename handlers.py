@@ -9,49 +9,49 @@ from dailymotion_api import DailymotionClient
 
 logger = logging.getLogger(__name__)
 
-# ─── Cool UI Constants ─────────────────────────────────
+# âââ Cool UI Constants âââââââââââââââââââââââââââââââââ
 EMOJI = {
-"logo": "🎬",
-"search": "🔍",
-"dubbed": "🗣️",
-"request": "📌",
-"list": "📋",
-"cancel": "❌",
-"trash": "🗑️",
-"success": "✅",
-"fail": "❌",
-"warning": "⚠️",
-"clock": "⏰",
-"movie": "🎥",
-"star": "⭐",
-"fire": "🔥",
-"robot": "🤖",
-"rocket": "🚀",
-"link": "🔗",
-"shield": "🛡️",
-"globe": "🌐",
-"target": "🎯",
-"heart": "❤️",
-"sparkles": "✨",
-"magnifier": "🔎",
-"notification": "🔔",
+"logo": "ð¬",
+"search": "ð",
+"dubbed": "ð£ï¸",
+"request": "ð",
+"list": "ð",
+"cancel": "â",
+"trash": "ðï¸",
+"success": "â",
+"fail": "â",
+"warning": "â ï¸",
+"clock": "â°",
+"movie": "ð¥",
+"star": "â­",
+"fire": "ð¥",
+"robot": "ð¤",
+"rocket": "ð",
+"link": "ð",
+"shield": "ð¡ï¸",
+"globe": "ð",
+"target": "ð¯",
+"heart": "â¤ï¸",
+"sparkles": "â¨",
+"magnifier": "ð",
+"notification": "ð",
 }
 
 WELCOME_CARD = (
 f"{EMOJI['logo']} **MOVIE TRACKER PRO** {EMOJI['logo']}\n"
-f"━━━━━━━━━━━━━━━━━━━━━━━\n"
+f"âââââââââââââââââââââââ\n"
 f"{EMOJI['rocket']} *Your personal Dailymotion scout*\n"
-f"━━━━━━━━━━━━━━━━━━━━━━━\n\n"
-f"{EMOJI['search']} **/search** `<title>` — Quick search\n"
-f"{EMOJI['dubbed']} **/dubbed** `<title>` — English-dubbed only\n"
-f"{EMOJI['request']} **/request** `<title>` — Track & notify\n"
-f"{EMOJI['list']} **/list** — Manage your requests\n"
-f"{EMOJI['trash']} **/cancel** `<id>` — Remove a request\n\n"
+f"âââââââââââââââââââââââ\n\n"
+f"{EMOJI['search']} **/search** `<title>` â Quick search\n"
+f"{EMOJI['dubbed']} **/dubbed** `<title>` â English-dubbed only\n"
+f"{EMOJI['request']} **/request** `<title>` â Track & notify\n"
+f"{EMOJI['list']} **/list** â Manage your requests\n"
+f"{EMOJI['trash']} **/cancel** `<id>` â Remove a request\n\n"
 f"{EMOJI['clock']} *Hourly auto-check is active*"
 )
 
-DIVIDER = "─────────────────────────"
-HEADER_BAR = "▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸"
+DIVIDER = "âââââââââââââââââââââââââ"
+HEADER_BAR = "â¸â¸â¸â¸â¸â¸â¸â¸â¸â¸â¸â¸â¸â¸â¸â¸â¸â¸â¸â¸â¸â¸"
 
 def _build_result_card(results: list, query: str, dubbed: bool = False) -> str:
 tag = f"{EMOJI['dubbed']} ENGLISH-DUBBED" if dubbed else f"{EMOJI['search']} SEARCH"
@@ -205,4 +205,3 @@ if deleted:
 await message.reply(f"{EMOJI['success']} Request `#{req_id}` trashed! {EMOJI['trash']}", parse_mode=ParseMode.MARKDOWN)
 else:
 await message.reply(f"{EMOJI['fail']} Couldn't find request `#{req_id}`.\nUse /list to see your active requests.", parse_mode=ParseMode.MARKDOWN)
-

@@ -1,4 +1,5 @@
 import asyncio
+import os
 import sqlite3
 import threading
 from typing import List, Optional
@@ -26,6 +27,7 @@ timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
 )
 conn.commit()
 return conn
+
 self._conn = await asyncio.to_thread(_init)
 
 def _execute(self, sql: str, params=(), commit=False):
@@ -44,6 +46,7 @@ cur = self._execute(
 commit=True,
 )
 return cur.lastrowid
+
 return await asyncio.to_thread(_add)
 
 async def list_requests(self, user_id: int) -> List[tuple]:
@@ -54,6 +57,7 @@ cur = self._execute(
 (user_id,),
 )
 return cur.fetchall()
+
 return await asyncio.to_thread(_list)
 
 async def delete_request(self, request_id: int, user_id: int = None) -> bool:
@@ -72,6 +76,7 @@ cur = self._execute(
 commit=True,
 )
 return cur.rowcount > 0
+
 return await asyncio.to_thread(_del)
 
 async def get_all_requests(self) -> List[dict]:
@@ -83,4 +88,5 @@ return [
 {"id": r[0], "user_id": r[1], "movie_title": r[2]}
 for r in rows
 ]
+
 return await asyncio.to_thread(_all)
